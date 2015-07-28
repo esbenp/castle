@@ -4,7 +4,7 @@ return [
 
     'default_bouncer' => Optimus\Castle\Bouncer\NotFoundBouncer::class,
 
-    'default_guard' => Optimus\Castle\Integration\Laravel\EloquentGuard::class,
+    'default_guard' => Optimus\Castle\Guard\EqualGuard::class,
 
     'bouncers' => [
         '403' => Optimus\Castle\Bouncer\ForbiddenBouncer::class,
@@ -13,10 +13,7 @@ return [
     ],
 
     'guards' => [
-        'variant-stock' => 'product_variant_id',
-        'entity-entity' => [
-            'class' => App\Guards\EntityEntity::class
-        ]
+
     ],
 
     'delimiter' => '-'
