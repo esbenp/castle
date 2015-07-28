@@ -5,5 +5,5 @@
 ## Installation
 
 ```bash
-composer require optimus/castle 0.1.*
+composer require optimus/castle 0.2.*
 ```
