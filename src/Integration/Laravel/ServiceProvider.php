@@ -11,6 +11,7 @@ class ServiceProvider extends BaseProvider {
 
     public function register()
     {
+        $this->registerAssets();
         $this->loadConfig();
         $this->bindInstance();
     }
@@ -22,6 +23,13 @@ class ServiceProvider extends BaseProvider {
 
             return new Castle($config);
         });
+    }
+
+    private function registerAssets()
+    {
+        $this->publishes([
+            __DIR__.'/../../config/' . self::packageKey . '.php' => config_path(self::packageKey . '.php')
+        ]);
     }
 
     private function loadConfig()
