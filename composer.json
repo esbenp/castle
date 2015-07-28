@@ -1,11 +1,12 @@
 {
-    "name": "optimus/laravel-boilerplate",
+    "name": "optimus/castle",
     "autoload": {
         "psr-4": {
-            "Optimus\\LaravelBoilerplate\\": "src/"
+            "Optimus\\Castle\\": "src/"
         }
     },
     "require": {
+        "php": ">=5.4.0",
         "laravel/framework": "~5.1"
     },
     "require-dev": {

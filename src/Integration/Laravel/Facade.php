@@ -1,19 +1,19 @@
 <?php
 
-namespace Optimus\BatchRequest\Facade;
+namespace Optimus\Castle\Integration\Laravel;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Optimus\BatchRequest\BatchRequest
+ * @see \Optimus\Castle\Castle
  */
-class Package extends Facade
+class Castle extends Facade
 {
     /**
      * @return string
      */
     protected static function getFacadeAccessor()
     {
-        return 'package';
+        return 'castle';
     }
 }
