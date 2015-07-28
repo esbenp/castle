@@ -23,7 +23,7 @@ class EqualGuard implements GuardInterface {
     {
         $leftResolved  = $this->resolveIdentifier($left, $this->leftIdentifier);
         $rightResolved = $this->resolveIdentifier($right, $this->rightIdentifier);
-var_dump($leftResolved, $rightResolved);
+
         return $leftResolved === $rightResolved;
     }
 

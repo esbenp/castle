@@ -47,30 +47,30 @@ class Gate {
             return $guard;
         } elseif (is_string($guard)) {
             if (!array_key_exists($guard, $this->config['guards'])) {
-                return new $this->config['default_guard'];
-            } else {
-                $config = $this->config['guards'][$guard];
-
-                // Config are delimitered identifiers and should be
-                // resolved using default guard
-                if (is_string($config)) {
-                    $class = $this->config['default_guard'];
-                    $args = $this->resolveIdentifiers($config);
-                } else if(is_array($config)) {
-                    $class = $config['class'];
-                    $args = array_key_exists('args', $config) ? $config['args'] : [];
-                }
-
-                $reflectionClass = new \ReflectionClass($class);
-                $instance = $reflectionClass->newInstanceArgs($args);
-
-                if (!($instance instanceof GuardInterface)) {
-                    throw new InvalidArgumentException(get_class($instance) .
-                    ' should implement Optimus\Castle\Guard\GuardInterface');
-                }
-
-                return $instance;
+                throw new InvalidArgumentException($guard . ' has no guard definition.');
             }
+
+            $config = $this->config['guards'][$guard];
+
+            // Config are delimitered identifiers and should be
+            // resolved using default guard
+            if (is_string($config)) {
+                $class = $this->config['default_guard'];
+                $args = $this->resolveIdentifiers($config);
+            } else if(is_array($config)) {
+                $class = $config['class'];
+                $args = array_key_exists('args', $config) ? $config['args'] : [];
+            }
+
+            $reflectionClass = new \ReflectionClass($class);
+            $instance = $reflectionClass->newInstanceArgs($args);
+
+            if (!($instance instanceof GuardInterface)) {
+                throw new InvalidArgumentException(get_class($instance) .
+                ' should implement Optimus\Castle\Guard\GuardInterface');
+            }
+
+            return $instance;
         }
     }
 

@@ -22,8 +22,7 @@ class EloquentGuard implements GuardInterface {
     {
         $leftResolved  = $this->resolvePrimaryKey($left);
         $rightResolved = $this->resolveIdentifier($right, $this->foreignKeyIdentifier);
-var_dump($leftResolved, $rightResolved);
-exit;
+
         return $leftResolved === $rightResolved;
     }
 
