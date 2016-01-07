@@ -18,7 +18,7 @@ class ServiceProvider extends BaseProvider {
 
     private function bindInstance()
     {
-        $this->app->bindShared('castle', function(){
+        $this->app->singleton('castle', function(){
             $config = $this->app['config']->get(self::packageKey);
 
             return new Castle($config);
